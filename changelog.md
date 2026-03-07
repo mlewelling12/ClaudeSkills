@@ -55,15 +55,16 @@ Based on `$ARGUMENTS`:
   git log {ref}..HEAD --format="%h %s (%an)" --no-merges
   ```
 
-- **Two refs separated by `..`**: Use the range as-is.
-  ```
-  git log {ref1}..{ref2} --format="%h %s (%an)" --no-merges
-  ```
-
-- **Date range** (e.g., `2024-01-01..2024-02-01`): Use `--since` and `--until`.
-  ```
-  git log --since="{start}" --until="{end}" --format="%h %s (%an)" --no-merges
-  ```
+- **Two refs separated by `..`**: Determine if this is a date range or a git ref range.
+  - **Date range heuristic**: If both sides match the pattern `YYYY-MM-DD` (4 digits, dash,
+    2 digits, dash, 2 digits), treat as a date range and use `--since` / `--until`:
+    ```
+    git log --since="{start}" --until="{end}" --format="%h %s (%an)" --no-merges
+    ```
+  - **Otherwise**: Treat as a git ref range (tags, branches, or SHAs) and use as-is:
+    ```
+    git log {ref1}..{ref2} --format="%h %s (%an)" --no-merges
+    ```
 
 ### Step 2: Categorize Commits
 

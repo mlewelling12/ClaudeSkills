@@ -82,13 +82,27 @@ git diff main --name-only | xargs grep -n "TODO\|FIXME\|HACK\|XXX" 2>/dev/null
 PASS if none. WARN with count and locations if found.
 
 **Check 7 — Secrets Scan**
-Check changed files for patterns that look like secrets:
-- API keys (long alphanumeric strings assigned to `key`, `token`, `secret` variables)
-- AWS access keys (`AKIA...`)
-- Private keys (`-----BEGIN.*PRIVATE KEY-----`)
-- `.env` files in the diff
+Check changed files for patterns that look like secrets using these regex patterns:
 
-PASS if none. FAIL if potential secrets detected.
+```
+# AWS access key IDs
+AKIA[0-9A-Z]{16}
+
+# Generic high-entropy secrets assigned to key/token/secret variables
+(?i)(api_key|apikey|secret|token|password|credential)\s*[:=]\s*['"][A-Za-z0-9/+=]{20,}['"]
+
+# Private keys (PEM format)
+-----BEGIN\s+(RSA|EC|DSA|OPENSSH|PGP)?\s*PRIVATE KEY-----
+
+# .env files in the diff
+^diff --git a/\.env
+
+# Connection strings with embedded credentials
+(?i)(mysql|postgres|mongodb|redis|amqp)://[^:]+:[^@]+@
+```
+
+PASS if none. FAIL if potential secrets detected. When a match occurs in test fixtures,
+example configs, or documentation, downgrade to WARN — only FAIL for matches in source code.
 
 **Check 8 — Large Files**
 Check for files over 1MB in the diff:

@@ -95,7 +95,9 @@ Add sections for:
 
 ### Step 5: Persist and Present
 
-1. Generate a slug from the feature name (e.g., "add-dark-mode-toggle" → `add-dark-mode-toggle.md`).
+1. Generate a slug from the feature name (e.g., "Add dark mode toggle" → `add-dark-mode-toggle`).
+   If a plan with that slug already exists, append an incrementing number
+   (e.g., `add-dark-mode-toggle-2`, `add-dark-mode-toggle-3`).
 2. Create `.claude/plans/` directory if needed. Add to `.gitignore` if not present.
 3. Write the plan to `.claude/plans/{slug}.md`.
 4. Present the plan to the user for review.

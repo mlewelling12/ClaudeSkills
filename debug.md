@@ -126,9 +126,13 @@ apply it, make the change and run verification.
 
 ### Step 7: Persist Session
 
-1. Generate a slug from the issue description.
-2. Write the debug session to `.claude/debug/{slug}.md`.
-3. Present the summary to the user.
+1. Create the `.claude/debug/` directory if it does not exist.
+2. Add `.claude/debug/` to `.gitignore` if not already present.
+3. Generate a slug from the issue description (lowercase, hyphens, no special characters).
+   If `.claude/debug/{slug}.md` already exists, append an incrementing number (`-2`, `-3`,
+   etc.) until the name is unique.
+4. Write the debug session to `.claude/debug/{slug}.md`.
+5. Present the summary to the user.
 
 ## Rules
 

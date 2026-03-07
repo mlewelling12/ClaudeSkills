@@ -83,11 +83,18 @@ Common refactoring types and when to apply them:
 
 ### Step 3: Pre-check
 
-Run the test suite before making any changes:
+Run the test suite before making any changes. Detect the test runner from project files:
 
-```
-{test command from project detection — same as /preflight Step 1}
-```
+| File present | Test command |
+|-------------|-------------|
+| `package.json` with `scripts.test` | `npm test` |
+| `Makefile` with `test` target | `make test` |
+| `pytest.ini`, `pyproject.toml`, or `setup.cfg` with pytest config | `pytest` |
+| `Cargo.toml` | `cargo test` |
+| `go.mod` | `go test ./...` |
+
+If none match, search for a `test` or `spec` directory and infer the runner from file
+extensions and imports.
 
 - **Tests pass**: Record the baseline. Proceed.
 - **Tests fail**: Stop. Report the failing tests. Do not refactor code with a failing test
@@ -117,7 +124,8 @@ For each planned change:
 1. **Make the change** — apply one transformation.
 2. **Verify** — run tests. If tests fail:
    - Check if the failure is caused by the change.
-   - If yes, revert the change and adjust the approach.
+   - If yes, revert the change using `git checkout -- <affected files>` to restore
+     the last passing state, then adjust the approach.
    - If no (flaky test), note it and continue.
 3. **Record** — add the change to the output with a diff.
 

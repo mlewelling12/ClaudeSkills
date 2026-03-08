@@ -14,6 +14,7 @@ A collection of slash-command skills for [Claude Code](https://docs.anthropic.co
 | [deps](deps.md) | `/deps <action> <pkg> [scope]` | Dependency impact analyzer — maps usage, assesses risk, and produces a migration checklist |
 | [doc](doc.md) | `/doc [file\|module]` | Generates or updates documentation for a file, module, or project |
 | [iterate](iterate.md) | `/iterate <task>` | Iterative refinement loop that survives context compaction |
+| [migrate](migrate.md) | `/migrate <from> to <to> [scope]` | Pattern-based codebase migration — finds all instances, transforms them, and verifies each change |
 | [plan](plan.md) | `/plan <feature>` | Creates a structured implementation plan for a feature |
 | [preflight](preflight.md) | `/preflight` | Pre-merge checklist — build, lint, tests, and common issue checks |
 | [refactor](refactor.md) | `/refactor <target>` | Guided refactoring with safety checks and incremental changes |

@@ -8,8 +8,10 @@ A collection of slash-command skills for [Claude Code](https://docs.anthropic.co
 
 | Skill | Command | Description |
 |-------|---------|-------------|
+| [audit](audit.md) | `/audit [scope]` | Codebase health audit — dependencies, complexity, tech debt, and security posture |
 | [changelog](changelog.md) | `/changelog [range]` | Generates a formatted changelog from git history |
 | [debug](debug.md) | `/debug <issue>` | Structured debugging — reproduces, hypothesizes, isolates, and fixes |
+| [deps](deps.md) | `/deps <action> <pkg> [scope]` | Dependency impact analyzer — maps usage, assesses risk, and produces a migration checklist |
 | [doc](doc.md) | `/doc [file\|module]` | Generates or updates documentation for a file, module, or project |
 | [iterate](iterate.md) | `/iterate <task>` | Iterative refinement loop that survives context compaction |
 | [plan](plan.md) | `/plan <feature>` | Creates a structured implementation plan for a feature |

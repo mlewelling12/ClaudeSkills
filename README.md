@@ -26,6 +26,7 @@ A collection of slash-command skills for [Claude Code](https://docs.anthropic.co
 | [secure](secure.md) | `/secure [scope]` | Deep security scanner — OWASP Top 10, secrets detection, auth/authz gaps |
 | [standup](standup.md) | `/standup` | Generates a daily standup summary from recent git activity |
 | [test](test.md) | `/test [file\|function]` | Scaffolds test cases with framework detection |
+| [testrun](testrun.md) | `/testrun [file\|function\|suite]` | Runs tests, parses results, and diagnoses failures with root cause analysis |
 
 ### Utilities
 

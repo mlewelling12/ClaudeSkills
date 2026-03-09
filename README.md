@@ -8,17 +8,22 @@ A collection of slash-command skills for [Claude Code](https://docs.anthropic.co
 
 | Skill | Command | Description |
 |-------|---------|-------------|
+| [api](api.md) | `/api [file\|module]` | API contract analyzer — documents endpoints, detects breaking changes, and validates schemas |
 | [audit](audit.md) | `/audit [scope]` | Codebase health audit — dependencies, complexity, tech debt, and security posture |
 | [changelog](changelog.md) | `/changelog [range]` | Generates a formatted changelog from git history |
+| [cleanup](cleanup.md) | `/cleanup [scope]` | Dead code and cruft remover — finds unused exports, orphaned files, and stale config |
 | [debug](debug.md) | `/debug <issue>` | Structured debugging — reproduces, hypothesizes, isolates, and fixes |
 | [deps](deps.md) | `/deps <action> <pkg> [scope]` | Dependency impact analyzer — maps usage, assesses risk, and produces a migration checklist |
 | [doc](doc.md) | `/doc [file\|module]` | Generates or updates documentation for a file, module, or project |
 | [iterate](iterate.md) | `/iterate <task>` | Iterative refinement loop that survives context compaction |
 | [migrate](migrate.md) | `/migrate <from> to <to> [scope]` | Pattern-based codebase migration — finds all instances, transforms them, and verifies each change |
+| [onboard](onboard.md) | `/onboard [area]` | Codebase onboarding guide — architecture overview, key flows, and getting-started instructions |
+| [perf](perf.md) | `/perf [file\|endpoint\|function]` | Performance analysis — bottlenecks, expensive operations, and optimization opportunities |
 | [plan](plan.md) | `/plan <feature>` | Creates a structured implementation plan for a feature |
 | [preflight](preflight.md) | `/preflight` | Pre-merge checklist — build, lint, tests, and common issue checks |
 | [refactor](refactor.md) | `/refactor <target>` | Guided refactoring with safety checks and incremental changes |
 | [review](review.md) | `/review [branch]` | Structured 4-pass code review of staged or branch changes |
+| [secure](secure.md) | `/secure [scope]` | Deep security scanner — OWASP Top 10, secrets detection, auth/authz gaps |
 | [standup](standup.md) | `/standup` | Generates a daily standup summary from recent git activity |
 | [test](test.md) | `/test [file\|function]` | Scaffolds test cases with framework detection |
 
